@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driverClassName: "com.mysql.jdbc.Driver"
+    url: "jdbc:mysql://127.0.0.1:3306/bootcamp_2408"
+    username: "root"
+    password: "admin1234"
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create
+
+api:
+  jph:
+    domain: "jsonplaceholder.typicode.com"
+    endpoints:
+      users: "/users" 
+      posts: "/posts" 
+      comments: "/comments" 
