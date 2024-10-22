@@ -34,17 +34,19 @@ public class ApiResp<T> {
     private String message;
     private List<T> data;
 
-    public Builder<T> code(String code) {
-      this.code = code;
+    public Builder<T> ok() {
+      this.code = SysCode.OK.getCode();
+      this.message = SysCode.OK.getMessage();
       return this;
     }
 
-    public Builder<T> message(String message) {
-      this.message = message;
+    public Builder<T> fail(BusinessException e) {
+      this.code = SysCode.FAIL.getCode();
+      this.message = e.getMessage();
       return this;
     }
 
-    public Builder<T> getData(List<T> data) {
+    public Builder<T> data(List<T> data) {
       this.data = data;
       return this;
     }

@@ -1,7 +1,5 @@
 package com.bootcamp.demo.bc_sb_jph_ex2.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,32 +7,35 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "Posts")
+@Table(name = "Addresses")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostEntity {
+public class AddressEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String title;
-  private String body;
+  private String street;
+  private String suite;
+  private String city;
+  private String zipcode;
 
-  @ManyToOne
+  @OneToOne
   @JoinColumn(name = "user_id", nullable = false)
   private UserEntity user;
 
-  @Builder.Default
-  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL,
+  @OneToOne(mappedBy = "address", cascade = CascadeType.ALL,
       fetch = FetchType.LAZY)
-  private List<CommentEntity> comments = new ArrayList<>();
+  private GeoEntity geo;
 }

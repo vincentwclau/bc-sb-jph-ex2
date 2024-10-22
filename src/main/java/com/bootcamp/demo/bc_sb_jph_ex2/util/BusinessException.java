@@ -1,8 +1,7 @@
-package com.bootcamp.demo.bc_sb_jph_ex2.exception;
+package com.bootcamp.demo.bc_sb_jph_ex2.util;
 
-import lombok.Getter;
+import com.bootcamp.demo.bc_sb_jph_ex2.exception.ErrorCode;
 
-@Getter
 public class BusinessException extends RuntimeException {
   private int code;
 
@@ -22,5 +21,9 @@ public class BusinessException extends RuntimeException {
   private BusinessException(ErrorCode error, String overrideMessage) {
     super(overrideMessage);
     this.code = error.getCode();
+  }
+
+  public int getCode() {
+    return this.code;
   }
 }

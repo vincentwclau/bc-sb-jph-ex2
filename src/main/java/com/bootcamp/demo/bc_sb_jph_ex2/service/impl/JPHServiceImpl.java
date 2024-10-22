@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import com.bootcamp.demo.bc_sb_jph_ex2.exception.BusinessException;
 import com.bootcamp.demo.bc_sb_jph_ex2.exception.ErrorCode;
 import com.bootcamp.demo.bc_sb_jph_ex2.model.dto.CommentDTO;
 import com.bootcamp.demo.bc_sb_jph_ex2.model.dto.PostDTO;
 import com.bootcamp.demo.bc_sb_jph_ex2.model.dto.UserDTO;
 import com.bootcamp.demo.bc_sb_jph_ex2.service.JPHService;
+import com.bootcamp.demo.bc_sb_jph_ex2.util.BusinessException;
 import com.bootcamp.demo.bc_sb_jph_ex2.util.Scheme;
 import com.bootcamp.demo.bc_sb_jph_ex2.util.UrlManager;
 

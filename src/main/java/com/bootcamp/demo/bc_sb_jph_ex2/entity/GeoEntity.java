@@ -1,12 +1,13 @@
 package com.bootcamp.demo.bc_sb_jph_ex2.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,22 +16,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Comments")
+@Table(name = "Geos")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentEntity {
+public class GeoEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String name;
-  private String email;
-  @Column(length = 1000)
-  private String body;
+  @Column(name = "latitude")
+  private String lat;
+  @Column(name = "longitude")
+  private String lng;
 
-  @ManyToOne
-  @JoinColumn(name = "post_id", nullable = false)
-  private PostEntity post;
+  @OneToOne
+  @JoinColumn(name = "address_id", nullable = false)
+  private AddressEntity address;
 }
