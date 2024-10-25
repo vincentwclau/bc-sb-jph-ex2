@@ -1,21 +1,19 @@
 package com.bootcamp.demo.bc_sb_jph_ex2.util;
 
-import java.util.List;
-
 public class ApiResp<T> {
   private String code;
   private String message;
-  private List<T> data;
+  private T data;
 
-  public String code(String code) {
+  public String getCode() {
     return this.code;
   }
 
-  public String message(String message) {
+  public String getMessage() {
     return this.message;
   }
 
-  public List<T> getData() {
+  public T getData() {
     return this.data;
   }
 
@@ -32,7 +30,7 @@ public class ApiResp<T> {
   public static class Builder<T> {
     private String code;
     private String message;
-    private List<T> data;
+    private T data;
 
     public Builder<T> ok() {
       this.code = SysCode.OK.getCode();
@@ -40,18 +38,20 @@ public class ApiResp<T> {
       return this;
     }
 
-    public Builder<T> fail(BusinessException e) {
+    public Builder<T> fail(Exception e) {
       this.code = SysCode.FAIL.getCode();
       this.message = e.getMessage();
       return this;
     }
 
-    public Builder<T> data(List<T> data) {
+    public Builder<T> data(T data) {
       this.data = data;
       return this;
     }
 
     public ApiResp<T> build() {
+      if (this.data == null)
+        throw new IllegalArgumentException("ApiResp.data should not be null.");
       return new ApiResp<>(this);
     }
   }

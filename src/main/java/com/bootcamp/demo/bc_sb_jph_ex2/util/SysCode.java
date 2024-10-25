@@ -2,7 +2,7 @@ package com.bootcamp.demo.bc_sb_jph_ex2.util;
 
 public enum SysCode {
   OK("000000", "Success."), //
-  FAIL("100000", "Fail."), //
+  FAIL("900000", "Fail."), //
   EXCEPTION("999999", "Unhandled Exception."), //
   ;
 

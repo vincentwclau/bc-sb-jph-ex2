@@ -77,6 +77,6 @@ public class AppStartupRunner implements CommandLineRunner {
     }).collect(Collectors.toList());
 
     // Save all data to all Users, Posts, Comments, Addresses, Companies, Geos
-    userService.saveAll(userEntities);
+    userService.createAll(userEntities);
   }
 }
