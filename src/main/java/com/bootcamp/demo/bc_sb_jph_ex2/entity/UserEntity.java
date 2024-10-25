@@ -35,7 +35,8 @@ public class UserEntity {
   private String email;
   private String phone;
   private String website;
-
+  
+  // ALL -> REMOVE + PERSIST + MERGE
   @OneToOne(mappedBy = "user",
       cascade = {CascadeType.PERSIST, CascadeType.MERGE},
       fetch = FetchType.LAZY)

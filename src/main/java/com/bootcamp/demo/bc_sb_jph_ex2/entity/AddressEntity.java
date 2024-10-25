@@ -35,7 +35,8 @@ public class AddressEntity {
   @JoinColumn(name = "user_id")
   private UserEntity user;
 
-  @OneToOne(mappedBy = "address", cascade = CascadeType.ALL,
+  @OneToOne(mappedBy = "address",
+      cascade = {CascadeType.PERSIST, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   private GeoEntity geo;
 }
