@@ -32,7 +32,7 @@ public class AddressEntity {
   private String zipcode;
 
   @OneToOne
-  @JoinColumn(name = "user_id", nullable = false)
+  @JoinColumn(name = "user_id")
   private UserEntity user;
 
   @OneToOne(mappedBy = "address", cascade = CascadeType.ALL,

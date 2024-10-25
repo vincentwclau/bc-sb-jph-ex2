@@ -2,6 +2,7 @@ package com.bootcamp.demo.bc_sb_jph_ex2.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public interface UserOperation {
    * @param id
    * @return
    */
-  @GetMapping("/user/{id}")
+  @GetMapping("/user")
   ApiResp<UserRespDto> getUser(@RequestParam Long id);
 
   /**
@@ -35,6 +36,6 @@ public interface UserOperation {
    * @return
    */
   @PutMapping("/user/{id}")
-  ApiResp<UserRespDto> updateUser(@RequestParam Long id,
+  ApiResp<UserRespDto> updateUser(@PathVariable Long id,
       @RequestBody UserReqDto user);
 }

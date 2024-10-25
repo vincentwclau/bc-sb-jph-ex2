@@ -32,6 +32,6 @@ public class GeoEntity {
   private String lng;
 
   @OneToOne
-  @JoinColumn(name = "address_id", nullable = false)
+  @JoinColumn(name = "address_id")
   private AddressEntity address;
 }

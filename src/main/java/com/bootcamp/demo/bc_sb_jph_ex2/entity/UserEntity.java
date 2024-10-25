@@ -36,16 +36,19 @@ public class UserEntity {
   private String phone;
   private String website;
 
-  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+  @OneToOne(mappedBy = "user",
+      cascade = {CascadeType.PERSIST, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   private AddressEntity address;
 
-  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+  @OneToOne(mappedBy = "user",
+      cascade = {CascadeType.PERSIST, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   private CompanyEntity company;
 
   @Builder.Default
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+  @OneToMany(mappedBy = "user",
+      cascade = {CascadeType.PERSIST, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   private List<PostEntity> posts = new ArrayList<>();
 }

@@ -31,6 +31,6 @@ public class CompanyEntity {
   private String bs;
 
   @OneToOne
-  @JoinColumn(name = "user_id", nullable = false)
+  @JoinColumn(name = "user_id")
   private UserEntity user;
 }
